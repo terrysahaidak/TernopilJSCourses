@@ -65,3 +65,13 @@ function renderNotFound() {}
 
 const app = new App()
 ```
+
+## Як використовувати boilerplate
+
+1. Встановіть git
+2. Клонуйте цей репозиторій, виконавши команду `git clone git@github.com:terrysahaidak/TernopilJSCourses.git`
+3. Перейдіть у директорію lecture_4_js_and_dom
+4. Встановіть nodejs.
+5. У даній директорії виконайте команду `npm install`
+6. Запустіть команду `npm start`
+7. Перейдіть у браузері на `0.0.0.0:3000/` чи `localhost:3000/`, чи `127.0.0.1:3000/`.
