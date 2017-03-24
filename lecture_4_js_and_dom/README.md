@@ -13,6 +13,8 @@ var view = p('div', {id: 'header'}, [
 function p(/* args */) {
   // body
 }
+
+
 ```
 Результат:
 ```html
@@ -22,6 +24,23 @@ function p(/* args */) {
   <a href="#">Перейти на привітання</a>
   <a href="#">Перейти назад</a>
 </div>
+```
+
+### Просунутий розв'язок
+
+```js
+var view = p('div', {id: 'header'}, [
+  p('div', {style: 'font-size: 2rem;'}, 'Привіт, TernopilJS!'),
+  p('br'),
+  p('div', null, 'Базовий приклад SPA без використання сторонніх бібліотек.'),
+  p('br'),
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigate('/hello')}}, 'Перейти на привітання'),
+  ' ',
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigateBack()}}, [
+    'Перейти ',
+    p('span', {style: {color: 'black'}}, 'назад')
+  ])
+])
 ```
 
 ## 2. Написати односторінковий веб-застосунок (SPA).
@@ -65,3 +84,13 @@ function renderNotFound() {}
 
 const app = new App()
 ```
+
+## Як використовувати boilerplate
+
+1. Встановіть git
+2. Клонуйте цей репозиторій, виконавши команду `git clone https://github.com/terrysahaidak/TernopilJSCourses.git`
+3. Перейдіть у директорію lecture_4_js_and_dom
+4. Встановіть nodejs.
+5. У даній директорії виконайте команду `npm install`
+6. Запустіть команду `npm start`
+7. Перейдіть у браузері на `0.0.0.0:3000/` чи `localhost:3000/`, чи `127.0.0.1:3000/`.
