@@ -81,32 +81,49 @@ class Router {
 
 function p(elementType, props = {}, childrens = null) {
   const element = document.createElement(elementType)
-  const keys =  Object.keys(props)
+  const keys =  Object.keys(props === null ? {} : props)
 
   if (keys.length) {
     keys.forEach(key => {
-      if (key === 'ref') {
+      switch (key) {
+      case 'ref':
         props.ref(element)
-      } else if (key === 'style') {
-        Object.keys(props.style).forEach(
-          style => element.style[style] = props.style[style]
-        )
-      } else {
+        break
+      case 'style':
+        typeof props[key] === 'string'
+          ? element[key] = props[key]
+          : Object.keys(props[key]).forEach(style => element.style[style] = props.style[style])
+        break
+      default:
         element[key] = props[key]
       }
     })
   }
 
+  const append = item => typeof item === 'string'
+    ? element.appendChild(document.createTextNode(item))
+    : element.appendChild(item)
+
   if (childrens) {
-    if (Array.isArray(childrens)) {
-      childrens.forEach(item => element.appendChild(item))
-    } else {
-      element.appendChild(childrens)
-    }
+    [].concat(childrens)
+      .forEach(item => append(item))
   }
 
   return element
 }
+
+const testView = p('div', {id: 'header'}, [
+  p('div', {style: 'font-size: 2rem;'}, 'Привіт, TernopilJS!'),
+  p('br'),
+  p('div', null, 'Базовий приклад SPA без використання сторонніх бібліотек.'),
+  p('br'),
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigate('/hello')}}, 'Перейти на привітання'),
+  ' ',
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigateBack()}}, [
+    'Перейти ',
+    p('span', {style: {color: 'black'}}, 'назад')
+  ])
+])
 
 function renderView(html) {
   const root = document.getElementById('app')
