@@ -13,6 +13,8 @@ var view = p('div', {id: 'header'}, [
 function p(/* args */) {
   // body
 }
+
+
 ```
 Результат:
 ```html
@@ -22,6 +24,23 @@ function p(/* args */) {
   <a href="#">Перейти на привітання</a>
   <a href="#">Перейти назад</a>
 </div>
+```
+
+### Просунутий розв'язок
+
+```js
+var view = p('div', {id: 'header'}, [
+  p('div', {style: 'font-size: 2rem;'}, 'Привіт, TernopilJS!'),
+  p('br'),
+  p('div', null, 'Базовий приклад SPA без використання сторонніх бібліотек.'),
+  p('br'),
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigate('/hello')}}, 'Перейти на привітання'),
+  ' ',
+  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigateBack()}}, [
+    'Перейти ',
+    p('span', {style: {color: 'black'}}, 'назад')
+  ])
+])
 ```
 
 ## 2. Написати односторінковий веб-застосунок (SPA).
