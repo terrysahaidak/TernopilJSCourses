@@ -88,7 +88,7 @@ const app = new App()
 ## Як використовувати boilerplate
 
 1. Встановіть git
-2. Клонуйте цей репозиторій, виконавши команду `git clone git@github.com:terrysahaidak/TernopilJSCourses.git`
+2. Клонуйте цей репозиторій, виконавши команду `git clone https://github.com/terrysahaidak/TernopilJSCourses.git`
 3. Перейдіть у директорію lecture_4_js_and_dom
 4. Встановіть nodejs.
 5. У даній директорії виконайте команду `npm install`
