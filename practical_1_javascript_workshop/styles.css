@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  flex: 10;
+}
+
+.links {
+  flex: 1;
+}
