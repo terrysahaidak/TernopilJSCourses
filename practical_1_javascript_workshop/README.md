@@ -25,11 +25,11 @@ const model = new Model()
 model.defineModel({
   name: 'author',
   fields: {
-    id: {type: 'string'},
-    fullName: {type: 'string', defaultTo: '', presence: true},
-    avatarUrl: {type: 'string', defaultTo: 'http://placehold.it/100x300'},
-    dateOfDeath: {type: 'string', defaultTo: ''},
-    city: {type: 'string', defaultTo: ''},
+    id: {type: String},
+    fullName: {type: String, defaultTo: '', presence: true},
+    avatarUrl: {type: String, defaultTo: 'http://placehold.it/100x300'},
+    dateOfDeath: {type: String, defaultTo: ''},
+    city: {type: String, defaultTo: ''},
     books: {ref: 'book'}
   }
 })
@@ -37,11 +37,11 @@ model.defineModel({
 model.defineModel({
   name: 'book',
   fields: {
-    id: {type: 'string'},
-    title: {type: 'string', defaultTo: ''},
-    image: {type: 'string', defaultTo: 'http://placehold.it/100x300'},
-    genre: {type: 'string', defaultTo: ''},
-    year: {type: 'string', defaultTo: ''},
+    id: {type: String},
+    title: {type: String, defaultTo: ''},
+    image: {type: String, defaultTo: 'http://placehold.it/100x300'},
+    genre: {type: String, defaultTo: ''},
+    year: {type: String, defaultTo: ''},
     authors: {ref: 'author'}
   }
 })
